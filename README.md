@@ -1,8 +1,8 @@
 ### re_raodmap
-author:jxiu
+*author*: jxiu
 
-`
-description:this project is a review of my road map.
+<u>description</u>:this project is a review of my road map.
+
 #### content
 * design pattern
 * core java
