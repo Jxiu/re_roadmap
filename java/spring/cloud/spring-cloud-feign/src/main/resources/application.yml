@@ -1,0 +1,15 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: feign-client
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://node3:10099/eureka/
+logging:
+  level:
+    root: info
+    com.example.cloud.feign.client.EurekaClientFeign: debug

@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: eureka-client
+  mandatory-file-encoding: UTF-8
+
+logging:
+  file:
+    max-size: 15MB
+    path: eureka-client-log
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
+  level:
+    root: info
+
+server:
+  port: 9998
+  servlet:
+    encoding:
+      enabled: true
+      charset: UTF-8
+  undertow:
+    accesslog:
+      enabled: true
+      dir: eureka_client_access_log
+      pattern: common
+      prefix: eureka_client_access_log.
+      suffix: log
+      rotate: true
+
+eureka:
+  client:
+    register-with-eureka: true #注册自己到注册中心
+    fetch-registry: true #获取注册列表信息
+    service-url:
+      defaultZone: http://node1:10097/eureka/,http://node2:10098/eureka/,http://node3:10099/eureka/
+
+
+student:
+  info:
+    name: rick
+    address: shanghai
+#server:
+#  port: 9090
+#spring:
+#  application:
+#    name: eureka-client
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:10099/eureka/
