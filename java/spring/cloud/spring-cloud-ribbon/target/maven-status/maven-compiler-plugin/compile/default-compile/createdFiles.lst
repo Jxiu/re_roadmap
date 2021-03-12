@@ -1,0 +1,5 @@
+com\example\cloud\ribbon\contoller\RibbonController.class
+com\example\cloud\ribbon\service\impl\RibbonServiceImpl.class
+com\example\cloud\ribbon\config\RibbonConfig.class
+com\example\cloud\ribbon\service\RibbonService.class
+com\example\cloud\ribbon\EurekaRibbonClientApplication.class

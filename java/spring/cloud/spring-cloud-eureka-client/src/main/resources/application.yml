@@ -2,6 +2,23 @@ spring:
   application:
     name: eureka-client
   mandatory-file-encoding: UTF-8
+  datasource:
+    url: jdbc:h2:file:~/test
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  #Turn Statistics on and log SQL stmts
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: false
+
+
 
 logging:
   file:
@@ -9,8 +26,11 @@ logging:
     path: eureka-client-log
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS
+#    console: %d{yyyy-MM-dd HH:mm:ss} - %msg%n
   level:
     root: info
+#logging.level.org.hibernate.type=trace
+#logging.level.org.hibernate.stat=debug
 
 server:
   port: 9998
@@ -32,8 +52,8 @@ eureka:
     register-with-eureka: true #注册自己到注册中心
     fetch-registry: true #获取注册列表信息
     service-url:
-      defaultZone: http://node1:10097/eureka/,http://node2:10098/eureka/,http://node3:10099/eureka/
-
+#      defaultZone: http://node1:10097/eureka/,http://node2:10098/eureka/,http://node3:10099/eureka/
+      defaultZone: http://node1:10099/eureka/
 
 student:
   info:

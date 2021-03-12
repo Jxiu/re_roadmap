@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-eureka</name>
     <description>Demo project for Spring eureka</description>
-
+    <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
@@ -75,6 +75,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>

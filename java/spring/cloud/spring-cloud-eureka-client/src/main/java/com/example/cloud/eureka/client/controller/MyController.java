@@ -20,7 +20,7 @@ public class MyController {
 
     @GetMapping("/info")
     public String info(){
-        int randomInt = new Random().nextInt(5500);
+        int randomInt = new Random().nextInt(1200);
         log.info("thread should sleep {} ms", randomInt);
         try {
             Thread.sleep((long)randomInt);
@@ -36,6 +36,7 @@ public class MyController {
                                           @RequestParam("age") int age,
                                           HttpServletRequest request){
         log.info("authKey: {}", request.getHeader("authKey"));
+        log.info("authKey2: {}", request.getHeader("authKey2"));
         log.info("name:{} ,age:{}",name,age);
         Parent parent = new Parent();
         parent.setAddress("parent address");

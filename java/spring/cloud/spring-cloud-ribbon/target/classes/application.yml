@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eureka-ribbon-client
+server:
+  port: 8888
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://node3:10099/eureka/
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 4000 #����ȫ��Ĭ��hystrix��ʱʱ��
