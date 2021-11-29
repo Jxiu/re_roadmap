@@ -1,4 +1,4 @@
-package lc101.sort.jmh;
+package benchmark.sort;
 
 import lc101.sort.BasicSort;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -56,6 +56,7 @@ public class BasicSortTest {
 
     /**
      * 快速排序基准测试类
+     * @State(Scope.Benchmark) 如果有共享状态需要定义状态的共享范围
      */
     @State(Scope.Benchmark)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -66,10 +67,7 @@ public class BasicSortTest {
          * 共享变量需要设置共享的范围
          */
         private AtomicLong runTime = new AtomicLong(0);
-//        @Setup
-//        public void setUp(){
-//
-//        }
+
 
         // @Benchmark注解：标识在某个具体方法上，表示这个方法将是一个被测试的最小方法，在JMH中成为一个OPS
         @Benchmark

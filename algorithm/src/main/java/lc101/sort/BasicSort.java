@@ -58,7 +58,7 @@ public class BasicSort {
     public static class HeapSort{
         /**
          * 升序排列数组
-         * @param a
+         * @param a array
          */
         public static void sort(int[] a){
             // 构建一个最大堆
@@ -78,10 +78,10 @@ public class BasicSort {
 
 
         /**
-         * 下沉，将当前节点下沉到适当的子节点位置
+         * 下沉，将当前节点下沉到二叉堆适当的子节点位置
          * @param a 数组
          * @param i 当前节点（需要下沉节点）下标
-         * @param lastIdx
+         * @param lastIdx 二叉堆最后一个节点下标
          */
         private static void sink(int[] a, int i, int lastIdx) {
             while (2*i < lastIdx){
