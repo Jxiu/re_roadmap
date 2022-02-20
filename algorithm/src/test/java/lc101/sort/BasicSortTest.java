@@ -13,6 +13,33 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BasicSortTest {
 
 
+    @ParameterizedTest
+    @MethodSource("getSortTestData")
+    public void mergeSort(int[] a){
+        int[] copy = Arrays.copyOf(a,a.length);
+
+        BasicSort.MergeSort.sort(a);
+        System.out.println(Arrays.toString(a));
+
+        Arrays.sort(copy);
+        System.out.println(Arrays.toString(copy));
+        assertArrayEquals(a, copy);
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("getSortTestData")
+    public void insertionSort(int[] a){
+        int[] copy = Arrays.copyOf(a,a.length);
+
+        BasicSort.InsertionSort.sort(a);
+        System.out.println(Arrays.toString(a));
+
+        Arrays.sort(copy);
+        System.out.println(Arrays.toString(copy));
+        assertArrayEquals(a, copy);
+    }
+
 
     @ParameterizedTest
     @MethodSource("getSortTestData")
@@ -28,7 +55,9 @@ public class BasicSortTest {
 
 
     public static int[][] getSortTestData(){
-        return BasicSort.generateTestDta(10,10);
+//        return BasicSort.generateTestDta(3,10);
+        int [][] a = {{4,6,2,5,8,1,1,9}};
+        return  a;
     }
 
     @Test

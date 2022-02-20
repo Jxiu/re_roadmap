@@ -54,7 +54,69 @@ public class BasicSort {
         a[x] = a[y];
         a[y] = temp;
     }
-    
+
+    /**
+     * 归并排序
+     */
+    public static class MergeSort{
+
+        public static void sort(int[] a){
+            int [] temp = new int[a.length];
+            mergeSort(a, 0, a.length-1, temp);
+        }
+
+        private static void mergeSort(int[] a, int lo, int hi, int[] temp) {
+            if (hi <= lo){
+                return;
+            }
+            int mid = lo + (hi - lo)/2;
+            // 切分数组
+            mergeSort(a, lo, mid, temp);
+            mergeSort(a, mid + 1, hi, temp);
+            // 归并数组
+            merge(a, lo, mid, hi,temp);
+        }
+
+        private static void merge(int[] a, int lo, int mid, int hi, int[] temp) {
+            int l = lo, r = mid + 1;
+            // 将需要排序区间数据复制到临时表
+            for (int i = lo; i <= hi ; i++) {
+                temp[i] = a[i];
+            }
+            for (int i = lo; i <= hi; i++) {
+                if (l > mid) {
+                    // 左边分区遍历完毕
+                    a[i] = temp[r++];
+                }else if (r > hi){
+                    // 右边分区遍历完毕
+                    a[i] = temp[l++];
+                }else if (temp[l] < temp[r]){
+                    // 两个分区都有数据，取已经排序的数组中较小值
+                    a[i] = temp[l++];
+                }else {
+                    a[i] = temp[r++];
+                }
+            }
+        }
+    }
+
+    public  static class InsertionSort{
+        public static void sort(int[] a){
+            int l = a.length;
+            if (l == 1) return;
+            for (int i = 1; i < l; i++) {
+                int curr = a[i];
+                int j = i;
+                while (j > 0 && a[j-1] > curr){
+                    a[j] = a[j-1];
+                    j--;
+                }
+                a[j] = curr;
+            }
+        }
+    }
+
+
     public static class HeapSort{
         /**
          * 升序排列数组
